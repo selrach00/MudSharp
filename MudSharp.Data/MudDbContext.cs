@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using MudSharp.Data.Models.Accounts;
 using MudSharp.Data.Models.World.Actors;
 using MudSharp.Data.Models.World.Environment.Rooms;
 using MudSharp.Data.Models.World.Items;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace MudSharp.Data
@@ -14,8 +16,22 @@ namespace MudSharp.Data
     /// </summary>
     public class MudDbContext : DbContext
     {
+        public MudDbContext()
+        {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                   .SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("appsettings.json")
+                   .Build();
+                var connectionString = configuration.GetSection("DbConnectionString").Value;
+                optionsBuilder.UseSqlServer(connectionString);
+            }
+        }
         #region Players
-
         /// <summary>
         /// Player accounts.
         /// </summary>
@@ -28,9 +44,8 @@ namespace MudSharp.Data
 
         #endregion
 
-
         #region World
-
+        public DbSet<Actor> Actors { get; set; }
         /// <summary>
         /// All the items in the world.
         /// </summary>

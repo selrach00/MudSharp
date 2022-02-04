@@ -1,11 +1,12 @@
-﻿using MudSharp.Data.Models.World.Items;
+﻿using MudSharp.Service.Models.World.Actors;
+using MudSharp.Service.Models.World.Items;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MudSharp.Data.Models.World.Actors
+namespace MudSharp.Service.Models.World.Actors
 {
-    public class Player : IEntity
+    public class Player
     {
         public int Id { get; set; }
 

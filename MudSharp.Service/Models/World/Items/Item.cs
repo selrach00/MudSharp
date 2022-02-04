@@ -1,7 +1,8 @@
 ﻿using System;
-using MudSharp.Data.Models.World.Actors;
+using MudSharp.Service.Models;
+using MudSharp.Service.Models.World.Actors;
 
-namespace MudSharp.Data.Models.World.Items
+namespace MudSharp.Service.Models.World.Items
 {
     /// <summary>
     /// The material the item is made out of.

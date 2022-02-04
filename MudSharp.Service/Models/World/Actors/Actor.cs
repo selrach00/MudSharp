@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MudSharp.Service.Models;
 using System;
 
-namespace MudSharp.Data.Models.World.Actors
+namespace MudSharp.Service.Models.World.Actors
 {
     public enum ActorType
     {
@@ -66,7 +66,7 @@ namespace MudSharp.Data.Models.World.Actors
     /// <summary>
     /// Statistics for all actors.
     /// </summary>
-    public class ActorStats : IEntity
+    public class ActorStats
     {
         public int Id { get; set; }
 
@@ -152,7 +152,7 @@ namespace MudSharp.Data.Models.World.Actors
     /// <summary>
     /// Class describing an actor (PC or NPC).
     /// </summary>
-    public class Actor : IEntity
+    public class Actor
     {        /// <inheritdoc/>
         public int Id { get; set; }
 

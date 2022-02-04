@@ -1,10 +1,8 @@
 ﻿using MudSharp.Server.Core;
 using MudSharp.Server.Providers;
+using Microsoft.Extensions.Hosting;
 using Ninject;
-using Ninject.Activation;
-using Ninject.Infrastructure.Disposal;
-using System;
-using System.Threading;
+using MudSharp.Data;
 
 namespace MudSharp.Server
 {
@@ -17,7 +15,6 @@ namespace MudSharp.Server
         static void Main(string[] args)
         {
             ConfigureNinject();
-
             _server = new TcpServer(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
             _server.StartServer();
             _server.Listen();

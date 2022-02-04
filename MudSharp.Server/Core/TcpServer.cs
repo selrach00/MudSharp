@@ -1,10 +1,9 @@
-﻿using MudSharp.Server.Providers;
-using Ninject;
+﻿using MudSharp.Data;
+using MudSharp.Data.Models.Accounts;
+using MudSharp.Server.Providers;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -35,9 +34,9 @@ namespace MudSharp.Server.Core
         {
             try
             {
+
                 IPAddress address = IPAddress.Parse(_configProvider.Core.ListenAddress);
                 _listener = new TcpListener(address, _configProvider.Core.ListenPort);
-
                 _listener.Start();
                 _accept = true;
 

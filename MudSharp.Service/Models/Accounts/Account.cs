@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MudSharp.Data.Models.Accounts
+namespace MudSharp.Service.Models.Accounts
 {
     public class Account : IEntity
     {
